@@ -18,7 +18,8 @@ public class Zoo {
      */
     public static void main(String[] args) {
         int menu = 0;
-        boolean z=true;
+        int escolha = 0;
+        boolean z = true;
         String nome = null, cor = null, alimento = null, caracteristica = null, ambiente = null;
         int comprimento = 0, patas = 0;
         double velocidade = 0;
@@ -36,7 +37,7 @@ public class Zoo {
         mamifero[1] = new Mamifero("Urso do Canadá", "Vermelho", "Mel", "Terra", 180, 0.5, 4);
         while (menu == 0) {
 
-            int escolha = Integer.parseInt(JOptionPane.showInputDialog("O que deseja fazer? \n 1- Consultar animal cadastrado \n 2- Cadastrar Animal \n 3- Sair "));
+            escolha = Integer.parseInt(JOptionPane.showInputDialog("O que deseja fazer? \n 1- Consultar animal cadastrado \n 2- Cadastrar Animal \n 3- Sair "));
 
             switch (escolha) {
                 case 1:
@@ -53,48 +54,10 @@ public class Zoo {
                 int escolha11 = Integer.parseInt(JOptionPane.showInputDialog("Que tipo de animal deseja pesquisar? \n 1- Mamífero \n 2-Peixes \n 3- Voltar \n 4- Sair"));
                 switch (escolha11) {
                     case 1:
-                        menu=3;
-                        while(menu==3){
-                        String nomem = JOptionPane.showInputDialog("Digite o nome do animal: ");
-                        
-                        
-int j=1;
-                        for (int i = 0; i < j; i++) {
-                            System.out.println(mamifero[i].nome());
-
-
-                            if (nomem.toUpperCase().equals(mamifero[i].nome().toUpperCase())) {
-                                mamifero[i].dados();
-                                z=false;
-                                j=1;
-                                
-                                                       }else
-                                j++;
-                        }
-                       int escolha12=Integer.parseInt(JOptionPane.showInputDialog("Deseja pesquisar outro mamífero? \n 1- SIM \n 2- NÃO"));
-                       switch(escolha12){
-                           case 1:
-                               menu=3;
-                               break;
-                           case 2:
-                               menu=0;
-                               break;
-                       }
-                           
-                            
-
-
-                   
-                       
-                        }
+                        menu = 3;
+                        break;
                     case 2:
-                        String nomep = JOptionPane.showInputDialog("Digite o nome do animal: ");
-                        for (int i = 0; i < 11; i++) {
-
-                            if (nomep.toUpperCase().equals(peixes[i].nome().toUpperCase())) {
-                                peixes[i].dados();
-                            }
-                        }
+                        menu = 4;
                         break;
                     case 3:
                         menu = 0;
@@ -103,6 +66,61 @@ int j=1;
                         menu = 10;
                         break;
                 }
+                while (menu == 3) {
+                    String nomem = JOptionPane.showInputDialog("Digite o nome do animal: ");
+
+                    int j = 1;
+                    for (int i = 0; i < j; i++) {
+                        System.out.println(mamifero[i].nome());
+
+                        if (nomem.toUpperCase().equals(mamifero[i].nome().toUpperCase())) {
+                            mamifero[i].dados();
+                            z = false;
+                            j = 1;
+
+                        } else {
+                            j++;
+                        }
+                    }
+                    int escolha12 = Integer.parseInt(JOptionPane.showInputDialog("Deseja pesquisar outro mamífero? \n 1- SIM \n 2- NÃO"));
+                    switch (escolha12) {
+                        case 1:
+                            menu = 3;
+                            break;
+                        case 2:
+                            menu = 0;
+                            break;
+
+                    }
+
+                }
+
+                while (menu == 4) {
+                    String nomep = JOptionPane.showInputDialog("Digite o nome do animal: ");
+                    int j = 1;
+                    for (int i = 0; i < j; i++) {
+
+                        if (nomep.toUpperCase().equals(peixes[i].nome().toUpperCase())) {
+                            peixes[i].dados();
+                            z = false;
+                            j = 1;
+
+                        } else {
+                            j++;
+                        }
+                    }
+                    int escolha13 = Integer.parseInt(JOptionPane.showInputDialog("Deseja pesquisar outro peixe? \n 1- SIM \n 2- NÃO"));
+                    switch (escolha13) {
+                        case 1:
+                            menu = 4;
+                            break;
+                        case 2:
+                            menu = 0;
+                            break;
+
+                    }
+                }
+
             }
 
             while (menu == 2) {
