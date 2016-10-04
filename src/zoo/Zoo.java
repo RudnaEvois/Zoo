@@ -78,7 +78,8 @@ public class Zoo {
                             z = false;
                             j = 1;
 
-                        } else {
+                        } 
+                        if(z==true){
                             j++;
                         }
                     }
